@@ -1,0 +1,45 @@
+{% extends "base.html" %}
+{% block content %}
+
+  <nav>
+    <div>
+        {% if 'username' not in session %}
+		<a class="right" href="{{url_for('showlogin')}}">Log in</a>
+		{% else %}
+		<a class="right" href="{{url_for('disconnect')}}">Log out</a>
+		{% endif %}
+		<a class="left" href= '{{url_for('showActivities')}}'>Back</a>
+	</div>
+  </nav>
+
+<article>
+
+  <div class='flash'>
+    {% with messages = get_flashed_messages() %}
+      {% if messages %}
+        <ul>
+        {% for message in messages %}
+          <li><strong>{{ message }}</strong></li>
+        {% endfor %}
+          </ul>
+      {% endif %}
+    {% endwith %}
+    <br>
+    </div>
+  
+ <p>Edit activity: "{{i.name}}"</p>
+
+  <form action= "{{url_for('editActivity', activity_id = i.id)}}" method = 'POST'>
+
+   <em class="style2">Name:</em>
+   </br>
+   <input type = 'text' size='30' name = 'name' placeholder = '{{i.name}}'>
+
+   <input type='submit' value='Edit'>
+
+   <a class="small-link" href= '{{url_for('showActivities')}}'> Cancel</a>
+
+  </form>
+</article>
+
+{% endblock %}

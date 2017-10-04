@@ -1,0 +1,39 @@
+{% extends "base.html" %}
+{% block content %}
+
+<nav class='shadow'>
+    <div>
+<a class="right" href="{{url_for('showlogin')}}">Log in</a>
+	</div>
+</nav>
+
+<article>
+	<div class='flash'>
+		{% with messages = get_flashed_messages() %}
+			{% if messages %}
+				<ul>
+				{% for message in messages %}
+					<li><strong>{{ message }}</strong></li>
+				{% endfor %}
+			    </ul>
+			{% endif %}
+		{% endwith %}
+		<br>
+    </div>
+<div class='centeritems'>
+		{% for i in activity %}
+		<div class='card'>
+		<div class="polaroid">
+			<img src="{{ i.picture }}" style="width:100%">
+  		<div class="container">
+			<p>{{i.name}}</p>	
+			<a class="small-link" href='{{url_for('showActivityItems', activity_id = i.id)}}'>View Items</a></br>
+	   </div>
+	   </div>
+	   </div>
+
+		{% endfor %}
+</div>
+
+</article>
+{% endblock %}

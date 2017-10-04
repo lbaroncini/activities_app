@@ -1,0 +1,31 @@
+{% extends "base.html" %}
+{% block content %}
+
+  <nav>
+    <div>
+        {% if 'username' not in session %}
+		<a class="right" href="{{url_for('showlogin')}}">Log in</a>
+		{% else %}
+		<a class="right" href="{{url_for('disconnect')}}">Log out</a>
+		{% endif %}
+		<a class="left" href= '{{url_for('showActivityItems', activity_id = activity_id)}}'>Back</a>
+	</div>
+  </nav>
+
+<article>
+	<p>New Item For Activity: "{{i.name}}"</p>
+
+	<form action="{{ url_for('newActivityItem', activity_id = activity_id )}}" method = 'POST'>
+		<em class="style2" >Name:</em><br>
+			<input type = 'text' size = '30' name = 'name' id='descr'><br>
+		<em class="style2" >Description:</em><br>
+			<input type = 'text' size = '30' name = 'description'><br>
+		<em class="style2" >Price:</em><br>
+			<input type = 'text' size = '10' name = 'price'><br>
+
+			<input type = 'submit' value = 'Create'>
+			<a class="small-link" href= '{{url_for('showActivityItems', activity_id = activity_id)}}'> Cancel</a>
+	</form>
+
+</article>
+{% endblock %}

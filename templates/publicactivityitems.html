@@ -1,0 +1,52 @@
+{% extends "base.html" %}
+{% block content %}
+
+<nav>
+    <div>
+		<a class="right" href="{{url_for('showlogin')}}">Log in</a>
+		<a class="left" href='{{url_for('showActivities')}}'> Back to Activities</a>
+	</div>
+</nav>
+
+
+<article>
+		<p>{{ activity.name }} Items</p>
+		<hr class="style1">
+
+<div class='flash'>
+		{% with messages = get_flashed_messages() %}
+			{% if messages %}
+				<ul>
+				{% for message in messages %}
+					<li><strong>{{ message }}</strong></li>
+				{% endfor %}
+			    </ul>
+			{% endif %}
+		{% endwith %}
+</div>
+<div class='centeritems'> <!--this-->
+		{% for i in items %}
+	    <div class='card2'><!--this-->
+		<div class="polaroid2">
+		<div class="container"><!--this-->
+			<p>{{i.name}}</p>
+			<em class="style2">From: {{i.price}}</em>
+			<br>
+			<em class="style2">Description: {{i.description}}</em>
+			<br>
+		</div><!--this-->
+	    </div>
+	    </div><!--this-->
+
+		{% endfor %}
+</div><!--this-->
+
+</article>
+
+{%  endblock %}
+
+
+
+
+
+

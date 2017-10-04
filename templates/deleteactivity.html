@@ -1,0 +1,38 @@
+{% extends "base.html" %}
+{% block content %}
+
+  <nav>
+    <div>
+		<a class="right" href="{{url_for('disconnect')}}">Log out</a>
+		<a class="left" href= '{{url_for('showActivities')}}'>Back</a>
+	</div>
+  </nav>
+
+<article>
+
+  <div class='flash'>
+    {% with messages = get_flashed_messages() %}
+      {% if messages %}
+        <ul>
+        {% for message in messages %}
+          <li><strong>{{ message }}</strong></li>
+        {% endfor %}
+          </ul>
+      {% endif %}
+    {% endwith %}
+    <br>
+    </div>
+
+ <p>Are you sure you want to delete activity: "{{i.name}}"?</p>
+
+  <form action= "{{url_for('deleteActivity', activity_id = activity_id)}}" method = 'POST'>
+
+   <input type='submit' value='Delete'>
+
+   <a class="small-link" href= '{{url_for('showActivities')}}'> Cancel</a>
+
+  </form>
+
+</article>
+
+{% endblock %}

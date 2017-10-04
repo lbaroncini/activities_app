@@ -1,0 +1,250 @@
+*, *:before, *:after {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: 'arial', 'sans-serif';
+  background-color: #000;
+  color: #000;/* #444; */
+}
+
+.right {
+    float:right;
+    text-align:right;
+    vertical-align: middle;
+    font-size:65%;
+    color: #000;
+}
+
+.left {
+    float:left;
+    text-align:left;
+    vertical-align: middle;
+    font-size:65%;
+    color: #000;
+    padding-right: 50px;
+}
+
+a.center {
+    text-align:center;
+    font-size:55%;
+    color: #000; 
+}
+
+a.right2 {
+    position: relative;
+    float: right;
+    text-align:right;
+    vertical-align: middle;
+    font-size:55%;
+    color: #000;
+    padding-bottom: 30px;
+}
+
+a.left2 {
+    position: relative;
+    float: left;
+    text-align:left;
+    vertical-align: middle;
+    font-size:55%;
+    color: #000;
+    padding-bottom: 30px;
+}
+
+.centeritems {
+    text-align: center;
+    align-items: center;
+    /*border: 1px solid #000;*/
+}
+
+.card img {
+  display: block;
+  max-width:250px;
+  max-height:200px;
+  min-height:200px; 
+  /*width: auto;
+  height: auto;*/
+}
+
+div.card {
+    display: inline-block;
+    max-width: 65vw;
+    align-items: center;
+    justify-content: center;
+    margin: 10px;
+}
+
+div.card2 {
+    display: inline;
+    max-width: 65vw;
+    align-items: left;
+    justify-content: center;
+    margin: 10px;
+}
+
+div.polaroid {
+  width: 250px;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  text-align: center;
+}
+
+div.polaroid2 {
+  width: 100%;/*250px;*/
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  text-align: left;
+}
+
+div.container {
+  padding: 10px;
+}
+
+a.small-link {
+  font-size: 55%;
+  color: #000;
+  padding-bottom: 50px;
+  padding-right: 10px;
+}
+
+a {
+    color: #000;
+    text-decoration: none;
+}
+
+.header a {
+    color: #000;
+    text-decoration: none;
+}
+
+.header em {
+  color: #000;
+}
+
+em.style2{
+  color: #000;
+  font-size: 65%;
+}
+em.style3{
+  font-size: 60%;
+}
+
+.flash {
+  color: red;
+  font-size: 50%;
+  text-decoration: none;
+}
+
+hr.style1{
+  border-top: 3px solid #000;
+}
+
+
+.black {
+  color: #000;
+}
+
+.orange {
+  color: #ff5733;
+}
+
+h1, p {
+  margin: 0 0 0 0;
+}
+
+h3 {
+  margin-top: 0;
+}
+
+.wrapper {
+  max-width: 100%;
+  margin: 0 20px;
+  display: grid;
+  grid-gap: none;
+}
+
+
+
+@media screen and (min-width: 500px) {
+/* no grid support? */
+  .sidebar {
+    float: left;
+    width: 19.1489%;
+  }
+}
+  /*.content {
+    float: right;
+    width: 79.7872%;
+  }*/
+
+  .wrapper {
+    margin: 0 auto;
+    grid-template-columns: 1fr; /*3fr;*/
+    grid-template-rows: 150px auto auto auto;
+  }
+  
+  .header, .footer {
+    grid-column: 1: /*/ -1;*/
+    /* needed for the floated layout */
+    clear: both;
+  }
+
+
+
+.wrapper > * {
+  background-color: #fff; /*#444;*/
+  color: #000;
+  /*border-radius: 5px;*/
+  padding: 20px;
+  font-size: 150%;
+  /* needed for the floated layout*/
+  margin-bottom: 10px;
+}
+
+/* #shadow {
+    background-color: #3D668F;
+    height: 50px;
+    width: 80px;
+    box-shadow: 0 4px 4px -2px #232323;
+    -moz-box-shadow: 0 4px 4px -2px #232323;
+    -webkit-box-shadow: 0 4px 4px -2px #232323;
+}*/
+
+.wrapper header {
+  background-color: #f1f4f5;
+}
+
+.wrapper nav {
+  background-color: #00e4ff;
+  box-shadow: 5px 0px 10px #000;
+  -moz-box-shadow: 5px 0px 10px #000;
+  -webkit-box-shadow: 5px 0px 10px #000; 
+}
+
+/*nav.shadow {
+  box-shadow: 5px 0px 10px #000;
+  -moz-box-shadow: 5px 0px 10px #000;
+  -webkit-box-shadow: 5px 0px 10px #000; 
+}*/
+
+.wrapper article{
+  background-color: #f1f4f5;/*#FFC300;*/
+}
+
+.wrapper footer{
+  background-color: #00e4ff;
+  color: #000;
+  text-align: center;
+  box-shadow: 5px 0px 10px #000;
+  -moz-box-shadow: 5px 0px 10px #000;
+  -webkit-box-shadow: 5px 0px 10px #000;
+}
+
+
+
+/* We need to set the widths used on floated items back to auto, and remove the bottom margin as when we have grid we have gaps. */
+@supports (display: grid) {
+  .wrapper > * {
+    width: auto;
+    margin: 0;
+  }
+}
